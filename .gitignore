@@ -4,3 +4,7 @@ tcl/
 Include/
 pip-selfcheck.json
 share/
+bin/
+include/
+lib/
+data/
