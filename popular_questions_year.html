@@ -11775,18 +11775,31 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 
 <span class="n">ORIGINAL_DATASET</span> <span class="o">=</span> <span class="s2">&quot;python_questions_new.csv&quot;</span>
-<span class="n">TARGET_DATASET</span> <span class="o">=</span> <span class="s2">&quot;python_questions_new.csv&quot;</span>
+<span class="c1"># TARGET_DATASET = &quot;python_questions_new.csv&quot;</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ORIGINAL_DATASET</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_string</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="c1"># data.to_csv(TARGET_DATASET)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_string</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
     <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
@@ -11800,8 +11813,6 @@ div#notebook {
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;full_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_string</span><span class="p">)</span>
 
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;is_code_present&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_code_present</span><span class="p">)</span>
-
-<span class="c1"># data.to_csv(TARGET_DATASET)</span>
 </pre></div>
 
 </div>
@@ -11811,7 +11822,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -11826,7 +11837,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -11856,7 +11867,7 @@ div#notebook {
       <td>0</td>
       <td>469</td>
       <td>147.0</td>
-      <td>2008-08-02T15:11:16Z</td>
+      <td>2008-08-02 15:11:16</td>
       <td>21</td>
       <td>How can I find the full path to a font from it...</td>
       <td>&lt;p&gt;I am using the Photoshop's javascript API t...</td>
@@ -11871,7 +11882,7 @@ div#notebook {
       <td>1</td>
       <td>502</td>
       <td>147.0</td>
-      <td>2008-08-02T17:01:58Z</td>
+      <td>2008-08-02 17:01:58</td>
       <td>27</td>
       <td>Get a preview JPEG of a PDF on Windows?</td>
       <td>&lt;p&gt;I have a cross-platform (Python) applicatio...</td>
@@ -11886,7 +11897,7 @@ div#notebook {
       <td>2</td>
       <td>535</td>
       <td>154.0</td>
-      <td>2008-08-02T18:43:54Z</td>
+      <td>2008-08-02 18:43:54</td>
       <td>40</td>
       <td>Continuous Integration System for a Python Cod...</td>
       <td>&lt;p&gt;I'm starting work on a hobby project with a...</td>
@@ -11901,7 +11912,7 @@ div#notebook {
       <td>3</td>
       <td>594</td>
       <td>116.0</td>
-      <td>2008-08-03T01:15:08Z</td>
+      <td>2008-08-03 01:15:08</td>
       <td>25</td>
       <td>cx_Oracle: How do I iterate over a result set?</td>
       <td>&lt;p&gt;There are several ways to iterate over a re...</td>
@@ -11916,7 +11927,7 @@ div#notebook {
       <td>4</td>
       <td>683</td>
       <td>199.0</td>
-      <td>2008-08-03T13:19:16Z</td>
+      <td>2008-08-03 13:19:16</td>
       <td>28</td>
       <td>Using 'in' to match an attribute of Python obj...</td>
       <td>&lt;p&gt;I don't remember whether I was dreaming or ...</td>
@@ -11938,7 +11949,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CreationDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CreationDate&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%SZ&quot;</span><span class="p">)</span>
@@ -11951,7 +11962,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11968,7 +11979,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_year</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
@@ -11982,7 +11993,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;CreationDate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">find_year</span><span class="p">)</span>
@@ -11992,6 +12003,15 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2016">Popular Phrases 2016<a class="anchor-link" href="#Popular-Phrases-2016">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13819,6 +13839,15 @@ AAAAwCiEGAAAAABGIcQAAAAAMAohBgAAAIBR/gID2gDqlEvXKAAAAABJRU5ErkJggg==
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2015">Popular Phrases 2015<a class="anchor-link" href="#Popular-Phrases-2015">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
@@ -15570,6 +15599,15 @@ QZUYCoVCoVAoFAqFUqT4f0yjeicxL+0pAAAAAElFTkSuQmCC
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2014">Popular Phrases 2014<a class="anchor-link" href="#Popular-Phrases-2014">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -17419,6 +17457,15 @@ AElFTkSuQmCC
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2013">Popular Phrases 2013<a class="anchor-link" href="#Popular-Phrases-2013">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
@@ -19220,6 +19267,15 @@ AElFTkSuQmCC
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2012">Popular Phrases 2012<a class="anchor-link" href="#Popular-Phrases-2012">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -21039,9 +21095,18 @@ JfWecoWbhjpyAAAAAElFTkSuQmCC
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2011">Popular Phrases 2011<a class="anchor-link" href="#Popular-Phrases-2011">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -21070,12 +21135,12 @@ JfWecoWbhjpyAAAAAElFTkSuQmCC
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f588c33ad68&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fc3d50572e8&gt;</pre>
 </div>
 
 </div>
@@ -22849,6 +22914,15 @@ EEMgEAj/b78OSAAAAAAE/X/djkBfCACsSAwAALAiMQAAwEr7SsfcmPFYrQAAAABJRU5ErkJggg==
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2010">Popular Phrases 2010<a class="anchor-link" href="#Popular-Phrases-2010">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
@@ -24540,6 +24614,15 @@ UmIIgiAIgiAIgogpSIkhCIIgCIIgCCKm+D/ZLgny2RRfVQAAAABJRU5ErkJggg==
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2009">Popular Phrases 2009<a class="anchor-link" href="#Popular-Phrases-2009">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -26357,6 +26440,15 @@ IQYAAEiKEAMAACRFiAEAAJIixAAAAEn5B6NALduRs05lAAAAAElFTkSuQmCC
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Popular-Phrases-2008">Popular Phrases 2008<a class="anchor-link" href="#Popular-Phrases-2008">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
